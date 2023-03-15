@@ -1,5 +1,6 @@
 package com.example.datingapp;
 
+import com.example.datingapp.ViewModels.PreSignup;
 import com.example.datingapp.ViewModels.albumModel;
 import com.example.datingapp.ViewModels.loginModel.LoginModel;
 import com.example.datingapp.ViewModels.users.Data;
@@ -26,21 +27,10 @@ public interface ApiInterface {
     @GET("photos")
     Call<List<albumModel>> getPhotos();
 
-    @GET("presignup")
-    Call<LoginModel> getLogin(
-            @Field("phone") String phone
-    );
-
-//   @FormUrlEncoded
-//    @POST("auth")
-//    Call<ModelUser>  getData(
-//            @Field("name") String name,
-//            @Field("phone") String phone,
-//            @Field("timezone") String timezone,
-//            @Field("device_id") String device_id,
-//            @Field("device_type") String device_type,
-//            @Field("image") String image
-//    );
+    @POST("presignup")
+    Call<LoginModel> presignup(
+            @Body PreSignup body
+            );
 
 
 

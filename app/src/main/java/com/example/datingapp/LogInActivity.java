@@ -20,6 +20,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.datingapp.ViewModels.PreSignup;
 import com.example.datingapp.ViewModels.loginModel.LoginModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -38,7 +39,7 @@ public class LogInActivity extends AppCompatActivity {
 
     String url="https://mocki.io/v1/1988d662-6fd7-486f-860b-fe9ae4b82276";
     String email="",password="",emailText="",passwordText="",s;
-    String phone="03137909583";
+    String phone="+923137909583";
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     FirebaseAuth mAuth;
     FirebaseUser mUser;
@@ -122,21 +123,39 @@ public class LogInActivity extends AppCompatActivity {
     private void connectAliAPI() {
 //          Log.e("check", " in login is api");
 
-        RetrofitInstanceClass.getInstance().apiInterface.getLogin(phone).enqueue(new Callback<LoginModel>() {
+        PreSignup preSignupObject= new PreSignup();
+        preSignupObject.setPhone(phone);
+        RetrofitInstanceClass.getInstance().apiInterface.presignup(preSignupObject).enqueue(new Callback<LoginModel>() {
             @Override
             public void onResponse(Call<LoginModel> call, retrofit2.Response<LoginModel> response) {
                 if(!response.isSuccessful()){
                     Toast.makeText(LogInActivity.this, "Login is not successful \n Error: "+response.code(), Toast.LENGTH_SHORT).show();
+                   Log.e("check","response is \n "+response.code());
                     return;
                 }
 //                Data jsonObject=response.body();
-                Log.e("check", " response in login is :"+response);
+                Log.e("check", " response in login is :"+response.body());
+                if(response.code()==200){
+                    if(response.body().getData().isIsUser()==true){
+                        Intent i = new Intent(LogInActivity.this, HomeNavigation.class);
+                        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(i);
+                    }
+                    else{
+                        Toast.makeText(LogInActivity.this, "Login is not successful, \n Account is not registered " , Toast.LENGTH_SHORT).show();
+
+                    }
+
+                }else{
+                    Toast.makeText(LogInActivity.this, "Login is not successful, Error is: " + response.message().toString(), Toast.LENGTH_SHORT).show();
+                }
 
             }
 
             @Override
             public void onFailure(Call<LoginModel> call, Throwable t) {
                 Toast.makeText(LogInActivity.this, "Login is not successful \n Error: "+t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.e("check","response message is is \n "+t.getMessage());
 
 
             }
