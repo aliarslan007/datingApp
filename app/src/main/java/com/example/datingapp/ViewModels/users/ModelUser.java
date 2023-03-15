@@ -36,4 +36,12 @@ public class ModelUser {
         this.status = status;
     }
 
+    @Override
+    public String toString() {
+        return "ModelUser{" +
+                "data=" + data +
+                ", message='" + message + '\'' +
+                ", status=" + status +
+                '}';
+    }
 }

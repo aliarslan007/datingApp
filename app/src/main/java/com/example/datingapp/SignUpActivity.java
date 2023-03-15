@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.datingapp.ViewModels.users.Data;
 import com.example.datingapp.ViewModels.users.ModelUser;
+import com.example.datingapp.post_models.PostAuth;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -21,6 +22,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Calendar;
@@ -28,6 +30,7 @@ import java.util.Calendar;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.http.Field;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -35,7 +38,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     String name, email, passwrod, phone;
-    String timezone="Lahore ",device_id="XUZ", device_type="Android ", image=" ";
+    String timezone="Lahore ",device_id="334", device_type="android", image="noimg.png";
     FirebaseAuth mAuth;
     FirebaseUser mUser;
     TextInputEditText nameETextLayout, emailETextLayout,passwordETextLayout,phoneETextLayout;
@@ -117,21 +120,30 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void signupWihAPIServer() {
 
-        RetrofitInstanceClass.getInstance().apiInterface.getData(name,phone, timezone,device_id,device_type,image).enqueue(new Callback<ModelUser>() {
+        PostAuth postAuth = new PostAuth(image, device_id, phone, timezone, name, device_type);
+        Log.d("SIGNUPRES", "signupWihAPIServer: " + postAuth);
+
+        RetrofitInstanceClass.getInstance().apiInterface.getData(postAuth).enqueue(new Callback<ModelUser>() {
             @Override
             public void onResponse(Call<ModelUser> call, Response<ModelUser> response) {
                 if(!response.isSuccessful()){
                     Toast.makeText(SignUpActivity.this, "SignUp is not successful \n Error: "+response.code(), Toast.LENGTH_SHORT).show();
                 return;
                 }
-//                Data jsonObject=response.body();
-                Log.e("check", " response is :"+response);
-                ModelUser data=response.body();
-                String n,p;
-                n=data.getData().getName();
-                p=data.getData().getPhone();
-                Toast.makeText(SignUpActivity.this, "response is \n name :  "+n+"\n phone : "+p, Toast.LENGTH_SHORT).show();
 
+                if (response.code()==200){
+                    //                Data jsonObject=response.body();
+                    Log.e("check", " response is :"+response);
+                    ModelUser data=response.body();
+                    Log.d("SIGNUPRESPONSE", "onResponse: " + response.body().getData());
+//                String n,p;
+//                n=data.getData().getName();
+//                p=data.getData().getPhone();
+                    Toast.makeText(SignUpActivity.this, response.body().getMessage() + data.getData().getName(), Toast.LENGTH_SHORT).show();
+
+                }else {
+                    Toast.makeText(SignUpActivity.this, response.message().toString(),Toast.LENGTH_SHORT).show();
+                }
 
             }
 

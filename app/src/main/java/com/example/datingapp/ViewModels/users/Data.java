@@ -77,4 +77,16 @@ public class Data {
         this.timezone = timezone;
     }
 
+    @Override
+    public String toString() {
+        return "Data{" +
+                "accesstoken='" + accesstoken + '\'' +
+                ", createdAt='" + createdAt + '\'' +
+                ", id=" + id +
+                ", image='" + image + '\'' +
+                ", name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
+                ", timezone='" + timezone + '\'' +
+                '}';
+    }
 }
