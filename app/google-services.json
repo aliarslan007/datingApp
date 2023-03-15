@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "693992378508",
+    "project_id": "datingapp-eda22",
+    "storage_bucket": "datingapp-eda22.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693992378508:android:1a7ecc3a1ec0ef89102ba9",
+        "android_client_info": {
+          "package_name": "com.example.datingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "693992378508-7pfuqfl06a8dur7upime6qrfar9inh3o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBO8GHkh_kuJW6rk-ZJ_xPv6sVU8kxw7FI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "693992378508-7pfuqfl06a8dur7upime6qrfar9inh3o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SignUpActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        >
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/logo"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/round_corners_layout"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="SIGN UP"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#F4511E"
+                android:layout_gravity="center"
+                android:gravity="center"
+                />
+            <View
+                android:id="@+id/divider"
+                android:layout_width="150dp"
+                android:layout_height="03dp"
+                android:background="#0C0C0C"
+                android:layout_gravity="center"
+
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:layout_marginTop="40dp"
+            android:orientation="vertical">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/nameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:background="#4A63F8"
+                android:textColorHint="@color/white"
+                app:boxStrokeColor="#FAF8F8"
+                app:boxStrokeErrorColor="#FBF8F8"
+                app:boxStrokeWidth="2dp"
+                app:boxStrokeWidthFocused="2dp"
+                app:hintTextColor="@color/white"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nameETextLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/person_vector"
+                    android:drawablePadding="5dp"
+                    android:hint="Full Name"
+                    android:gravity="left"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:background="#4A63F8"
+                    android:maxLines="1"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginTop="10dp"
+                android:background="#4A63F8"
+                android:textColorHint="@color/white"
+                app:boxStrokeColor="#FAF8F8"
+                app:boxStrokeErrorColor="#FBF8F8"
+                app:boxStrokeWidth="2dp"
+                app:boxStrokeWidthFocused="2dp"
+                app:hintTextColor="@color/white"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/emailETextLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_baseline_email_24"
+                    android:drawablePadding="5dp"
+                    android:hint="Email"
+                    android:gravity="left"
+                    android:textSize="15sp"
+                    android:background="#4A63F8"
+                    android:maxLines="1"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textColorHint="@color/white"
+                android:layout_marginTop="10dp"
+                app:boxStrokeColor="#FAF8F8"
+                app:boxStrokeErrorColor="#FBF8F8"
+                app:boxStrokeWidth="2dp"
+                app:startIconDrawable="@drawable/lock_vector"
+                app:startIconTint="@color/white"
+                app:endIconMode="password_toggle"
+                app:boxStrokeWidthFocused="2dp"
+                app:hintTextColor="@color/white"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/passwordETextLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:background="#4A63F8"
+                    android:gravity="left"
+                    android:textSize="15sp"
+                    android:hint="Password" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginTop="10dp"
+                android:background="#4A63F8"
+                android:textColorHint="@color/white"
+                app:boxStrokeColor="#FAF8F8"
+                app:boxStrokeErrorColor="#FBF8F8"
+                app:boxStrokeWidth="2dp"
+                app:boxStrokeWidthFocused="2dp"
+                app:hintTextColor="@color/white"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+
+                    android:id="@+id/dateEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/calendar_vector"
+                    android:drawablePadding="5dp"
+                    android:background="#4A63F8"
+                    android:gravity="left"
+                    android:hint="Birthday"
+                    android:inputType="text"
+                    android:onClick="datePicker"
+                    android:textSize="15sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/phoneLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginTop="10dp"
+                android:textColorHint="@color/white"
+                app:boxStrokeColor="#FAF8F8"
+                app:boxStrokeErrorColor="#FBF8F8"
+                app:boxStrokeWidth="2dp"
+                app:boxStrokeWidthFocused="2dp"
+                app:hintTextColor="@color/white"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+
+                    android:id="@+id/phoneETextLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/phone_vector"
+                    android:drawablePadding="5dp"
+                    android:background="#4A63F8"
+                    android:inputType="number"
+                    android:textSize="15sp"
+                    android:gravity="left"
+                    android:hint="Phone Number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="05dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#43A047"
+                    android:textColor="#FFFFFF"
+                    android:layout_gravity="center"
+                    android:textSize="12sp"
+                    android:onClick="clickListenerOnCreateSignup"
+                    android:text="Create Account"
+                    />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

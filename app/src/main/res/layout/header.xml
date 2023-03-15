@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:weightSum="3"
+        android:background="@drawable/black_border_white">
+
+        <ImageView
+            android:id="@+id/headerProfileImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="01dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/big_logo" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include layout="@layout/navigation_bottom_menu"/>
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
