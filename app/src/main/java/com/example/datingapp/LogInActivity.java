@@ -120,7 +120,7 @@ public class LogInActivity extends AppCompatActivity {
     }
 
     private void connectAliAPI() {
-          Log.e("check", " in login is api");
+//          Log.e("check", " in login is api");
 
         RetrofitInstanceClass.getInstance().apiInterface.getLogin(phone).enqueue(new Callback<LoginModel>() {
             @Override
