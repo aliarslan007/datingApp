@@ -20,6 +20,8 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class UsersDispalyFragment extends Fragment {
 
@@ -30,7 +32,7 @@ public class UsersDispalyFragment extends Fragment {
 
     TextView users_result;
      ProgressBar progressBar;
-//    public  static String apiUrl="https://jsonplaceholder.typicode.com";
+    public  static String apiUrl2="https://jsonplaceholder.typicode.com";
 
     public  static String apiUrl="https://naseejprod.azurewebsites.net/api/";
 
@@ -56,8 +58,14 @@ public class UsersDispalyFragment extends Fragment {
         Log.e("api", "in view created");
         users_result=view.findViewById(R.id.users_result);
         progressBar=view.findViewById(R.id.progressBar);
+        ApiInterface apiInterface;
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(apiUrl2)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        apiInterface= retrofit.create(ApiInterface.class);
 
-        RetrofitInstanceClass.getInstance().apiInterface.getPosts().enqueue(new Callback<List<albumModel>>() {
+        apiInterface.getPosts().enqueue(new Callback<List<albumModel>>() {
             @Override
             public void onResponse(Call<List<albumModel>> call, Response<List<albumModel>> response) {
             if(!response.isSuccessful()){

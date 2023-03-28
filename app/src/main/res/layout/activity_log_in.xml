@@ -99,7 +99,7 @@
                     android:layout_height="wrap_content"
                     android:background="#4A63F8"
                     android:gravity="left"
-                    android:hint="Email"
+                    android:hint="Email or Phone"
                     app:helperText="Required"
                     app:helperTextTextColor="@color/red"
                     android:maxLines="1"

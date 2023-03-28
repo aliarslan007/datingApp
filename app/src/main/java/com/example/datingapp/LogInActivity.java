@@ -66,7 +66,8 @@ public class LogInActivity extends AppCompatActivity {
        emailText=emailView.getEditText().getText().toString().trim();
        passwordText=passwordView.getEditText().getText().toString().trim();
 
-        authPerfromWithAPI();
+//        authPerfromWithAPI();
+        authPerformWithFirebase();
     }
 
     private void authPerformWithFirebase() {
@@ -106,8 +107,11 @@ public class LogInActivity extends AppCompatActivity {
             emailEditText.setError("Enter correct email ");
         } else {
             connectAliAPI();
-//            connectThroughVolleyResult();
+            connectThroughVolleyResult();
         }
+        connectAliAPI();
+
+
     }
 
     private void connectThroughVolleyResult() {
@@ -124,7 +128,7 @@ public class LogInActivity extends AppCompatActivity {
 //          Log.e("check", " in login is api");
 
         PreSignup preSignupObject= new PreSignup();
-        preSignupObject.setPhone(phone);
+        preSignupObject.setPhone(emailText);
         RetrofitInstanceClass.getInstance().apiInterface.presignup(preSignupObject).enqueue(new Callback<LoginModel>() {
             @Override
             public void onResponse(Call<LoginModel> call, retrofit2.Response<LoginModel> response) {

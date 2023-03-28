@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -53,7 +54,27 @@ public class HomeNavigation extends AppCompatActivity {
 
 
     }
-
+    public void onClickFB (View v){
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.addCategory(Intent.CATEGORY_BROWSABLE);
+        intent.setData(Uri.parse("http://facebook.com"));
+        startActivity(intent);
+    }
+    public void onClickTwitter (View v){
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.addCategory(Intent.CATEGORY_BROWSABLE);
+        intent.setData(Uri.parse("https://twitter.com"));
+        startActivity(intent);
+    }
+    public void onClickInsta (View v){
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.addCategory(Intent.CATEGORY_BROWSABLE);
+        intent.setData(Uri.parse("https://instagram.com"));
+        startActivity(intent);
+    }
     public void onClickUserDispalyLayout (View v){
         FragmentManager fragmentManager2= getSupportFragmentManager();
         FragmentTransaction fragmentTransaction2=fragmentManager2.beginTransaction();

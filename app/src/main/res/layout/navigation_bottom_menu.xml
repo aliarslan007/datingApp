@@ -215,25 +215,28 @@
         android:gravity="center"
         android:layout_marginTop="30dp"
         android:onClick="onClickPrivacyLayout">
-        <ImageView
+        <ImageButton
             android:id="@+id/fbImageId"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginRight="30dp"
             android:layout_gravity="center_vertical"
-            app:srcCompat="@drawable/fbicon" />
+            android:onClick="onClickFB"
+            android:background="@drawable/fbicon" />
 
         <ImageView
             android:id="@+id/twitterImageId"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginRight="30dp"
+            android:onClick="onClickTwitter"
             android:layout_gravity="center_vertical"
             app:srcCompat="@drawable/twitter" />
         <ImageView
             android:id="@+id/instaImageId"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:onClick="onClickInsta"
             android:layout_gravity="center_vertical"
             app:srcCompat="@drawable/insta" />
     </LinearLayout>

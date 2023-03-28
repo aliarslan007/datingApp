@@ -112,8 +112,8 @@ public class SignUpActivity extends AppCompatActivity {
         }
         else {
             Log.e("check","in auth validation");
-//            signupWihFirebase();
-            signupWihAPIServer();
+            signupWihFirebase();
+//            signupWihAPIServer();
 
         }
     }
